@@ -20,9 +20,12 @@
 |Регистрация для пользователей|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Freg.gif?alt=media&token=97e6424d-f493-436f-b263-822424c18091)|
 
 ### Функционал сайта для администраторов:
+Администратор может гибко настроить сайт.
 |Функционал|Демонстрация|
 |-|-|
 |Редактирование продающей странице|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Feditmain.gif?alt=media&token=de6deda2-a0a1-41c1-a3ab-80d6d186b4c4)|
-|Регистрация для пользователей|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Freg.gif?alt=media&token=97e6424d-f493-436f-b263-822424c18091)|
+|Полученные сообщение из контактной формы|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Fadmcontact.gif?alt=media&token=c73f086e-2519-4c41-9b69-23827e435dcc)|
+|Редактирование постов|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Fadmpage.gif?alt=media&token=36ebd51e-0346-461d-8c10-3451bdacaa15)|
+|Комментарии с фильтрацией и другое|![1land.gif](https://firebasestorage.googleapis.com/v0/b/antonio-glyzin.appspot.com/o/sportsite%2Fadmcomm.gif?alt=media&token=b5201981-c6c1-4c6f-92a1-745c914987a6)|
 
 
