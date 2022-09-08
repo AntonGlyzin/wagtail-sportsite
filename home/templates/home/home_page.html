@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags template_tags static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="">
+    {% if page.carousel_block %}
+        <div class="row">
+            {% get_carousel_block page.carousel_block %} 
+        </div>
+    {% endif %}
+    {% if page.section_program %}
+        <div class="row section-prog">
+            {% include 'includes/section_program.html' with programs_carusel=page.section_program.get_programs_carusel head_text=page.section_program.head_text  %}
+        </div>
+    {% endif %}
+    {% if page.effects_sport %}
+        <div class="row">
+            {% include 'includes/section_effects_sport.html' with effects_sport=page.effects_sport head_effects=page.head_effects %}
+        </div>
+    {% endif %}
+    {% if page.list_testimonial_sport %}
+        <div class="row">
+            {% include 'includes/list_testimonial_sport.html' with list_testimonial=page.list_testimonial_sport head_testimonial=page.head_testimonial %}
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

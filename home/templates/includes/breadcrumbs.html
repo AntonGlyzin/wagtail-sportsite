@@ -1,0 +1,16 @@
+{% load template_tags wagtailcore_tags i18n %}
+
+{% if ancestors %}
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class='breadcrumb-sport'>
+    <ol class="breadcrumb">
+      {% for ancestor in ancestors %}
+          {% if forloop.last %}
+          <li class="breadcrumb-item" aria-current="page">{{ ancestor }}</li>
+          {% else %}
+          <li class="breadcrumb-item"><a href="{% pageurl ancestor %}">{% if forloop.first %}{% trans 'Главная' %}{% else %}{{ ancestor }}{% endif %}</a>
+          {% endif %}
+        {% endfor %}
+    </ol>
+  </nav>
+
+  {% endif %}

@@ -1,0 +1,62 @@
+{% load wagtailcore_tags template_tags wagtailimages_tags static i18n %}
+
+<div class="bg-dark text-white sport-footer">
+<div class="container">
+    <footer class="py-5">
+      <div class="row sport-footer-link">
+        <div class="col-sm-3 mb-3">
+          <h5>{% trans 'Категории' %}</h5>
+          <ul class="nav flex-column">
+            {% list_category as list_category %}
+            {% for cat in list_category %}
+            <li class="nav-item mb-2">
+                <a href="{{ cat.get_absolute_url }}" class="p-0 text-muted text-decoration-none">
+                    {{ cat.name }}
+                </a></li>
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <div class="col-sm-4 mb-3">
+          <h5 class="text-center">{% trans 'Теги' %}</h5>
+          <ul class="nav">
+            {% list_tags as list_tags %}
+
+                {% for tag in list_tags %}
+            <li class="mb-1 ms-1 badge border border-secondary">
+                <a href="{{ tag.url }}" class=" p-0 text-muted">{{ tag.name }}</a>
+
+                
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-secondary">
+        <p>© 2022 Company, Inc. {% trans 'Все права защищены.' %}</p>
+        {% with settings.home.SiteSettings as setting %}
+        <ul class="list-unstyled d-flex footer-link-social">
+            {% if setting.link_vk %}
+          <li class="ms-3"><a class="link-light" href="{{ setting.link_vk }}">
+            <i class="fa fa-vk fs-1" aria-hidden="true"></i>
+          </a></li>
+          {% endif %}
+
+          {% if setting.link_tele %}
+          <li class="ms-3"><a class="link-light" href="{{ setting.link_tele }}">
+            <i class="fa fa-telegram fs-1" aria-hidden="true"></i>
+          </a></li>
+          {% endif %}
+
+          {% if setting.link_inst %}
+          <li class="ms-3"><a class="link-light" href="{{ setting.link_inst }}">
+            <i class="fa fa-instagram fs-1" aria-hidden="true"></i>
+          </a></li>
+          {% endif %}
+          {% endwith %}
+        </ul>
+    </div>
+    </footer>
+  </div>
+</div>

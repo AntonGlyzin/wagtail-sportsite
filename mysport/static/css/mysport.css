@@ -1,0 +1,20 @@
+:root {
+    --color-primary: #535252;
+    --color-primary-darker: #3b4142;
+    --color-primary-dark: #ff592a;
+    --color-primary-lighter: azure;
+    --color-primary-light: aliceblue;
+    --color-input-focus: #fff5f2;
+    --color-input-focus-border: #e6945e;
+    --w-color-primary:#3b4142;
+    --w-color-primary-200: #535252;
+}
+/* .sidebar__inner{
+    background-color: #292929;
+}
+.c-page-explorer{
+    background-color: #313131;
+}
+.c-page-explorer__header{
+    background-color: #272727;
+} *

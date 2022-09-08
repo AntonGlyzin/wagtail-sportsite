@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="worked-account w-100 d-flex justify-content-center pt-4 hover-sport pb-4">
+
+<div class="offset-md-1 col-md-6">
+
+<h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form class="signup login d-flex flex-column" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <p>
+    {{ form.username.errors }}
+    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+    {{ form.username }}
+  </p>
+  <p>
+    {{ form.first_name.errors }}
+    <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+    {{ form.first_name }}
+  </p>
+  <p>
+    {{ form.last_name.errors }}
+    <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+    {{ form.last_name }}
+  </p>
+  <p>
+    {{ form.password1.errors }}
+    <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+    {{ form.password1 }}
+  </p>
+  <p>
+    {{ form.password2.errors }}
+    <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+    {{ form.password2 }}
+  </p>
+  <p>
+    {{ form.captcha.errors }}
+    <label for="{{ form.captcha.id_for_label }}">{{ form.captcha.label }}</label>
+    {{ form.captcha }}
+  </p>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit" class="btn-mysport ">{% trans "Sign Up" %} &raquo;</button>
+</form>
+
+</div>
+    
+</div>
+
+
+{% endblock %}

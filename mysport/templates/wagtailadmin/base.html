@@ -1,0 +1,18 @@
+{% extends "wagtailadmin/base.html" %}
+{% load static wagtailimages_tags wagtailcore_tags %}
+
+{% block branding_logo %}
+    {% with settings.home.SiteSettings.logo_blob  as image %}
+    <img src='data:image/jpeg;base64,{{ image }}' alt='' class='text-white' width=100 height=100/>
+    {% endwith %}
+{% endblock %}
+
+{% block branding_favicon %}
+    {% with settings.home.SiteSettings.logo_blob as image %}
+        <link href='data:image/jpeg;base64,{{ image }}' rel="shortcut icon" />
+    {% endwith %}
+{% endblock %}
+
+{% block branding_title %}{{ settings.home.SiteSettings.site_name }}{% endblock %}
+
+

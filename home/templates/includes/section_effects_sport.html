@@ -1,0 +1,27 @@
+{% load wagtailimages_tags template_tags %}
+
+
+<div class='effect-sport'>
+     <h4 class='mb-5 text-center'>{{ head_effects }}</h4>
+    <div class='d-flex flex-wrap justify-content-center'>
+       
+        {% for effect_sport in effects_sport %}
+            {% if forloop.counter0|div:"3" or forloop.first %}
+                <div class="row w-100">
+            {% endif %}
+
+            {% image effect_sport.value.image fill-200x200 as image %}
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+            <div class="card card-block me-3 mb-3 p-1 w-100">
+                <div class='d-flex justify-content-center'>
+                    <img src="{{ image.url }}" alt="{{ image.url }}" >
+                </div>
+                  <h5 class="card-title mt-3 mb-3 text-center">{{ effect_sport.value.caption }}</h5>
+                  <p class="card-text p-3 pt-0">{{ effect_sport.value.description }}</p> 
+            </div></div>
+            {% if forloop.counter|div:"3" or forloop.last %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

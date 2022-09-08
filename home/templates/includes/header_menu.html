@@ -1,0 +1,89 @@
+{% load menu_tags wagtailimages_tags wagtailcore_tags i18n static %}
+
+<nav class="ps-3 pe-3 bg-dark text-white header-menu navbar navbar-expand-md sticky-top">
+<div class="container-fluid">
+    <a href="/" class="navbar-brand text-decoration-none">
+        {% comment %} {% image settings.home.SiteSettings.site_logo fill-50x50 as image %}
+        <img src='{{ image.url }}' alt='{{ image.alt }}' class='text-white'/> {% endcomment %}
+        <img src='data:image/jpeg;base64,{{ settings.home.SiteSettings.logo_blob }}' alt='' class='text-white' width=50 height=50/>
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent" >
+            <i class="fa-solid fa-bars fs-2"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            {% for item in menu_items %}
+                <li class='linkactive-line nav-item'>
+                    <a href="{{ item.href }}" class="nav-link px-2 item-active" >{{ item.text }}
+                        <div class='linkactive-hover'></div>
+                    </a>
+                
+                </li>
+            {% endfor %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" 
+                        id="navbarDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                  {% if request.user.photo %}
+                  {% with request.user.photo as ava %}
+                      <img src="{{ ava.url }}" alt="{{ ava.alt }}" class="rounded-circle" width="32" height="32">
+                  {% endwith %}
+                  {% else %}
+                  <i class="fa fa-user-circle-o fs-3" aria-hidden="true"></i>
+                  {% endif %}
+                  
+                </a>
+                <ul class="dropdown-menu dropdown-menu-sport" aria-labelledby="navbarDropdown">
+
+                  {% if request.user.is_authenticated %}
+                    <li><a class="dropdown-item" href="/accounts/profile/">{% trans 'Профиль' %}</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">{% trans 'Выйти' %}</a></li>
+                  {% else %}
+                    <li><a class="dropdown-item" href="{% url 'account_login' %}">{% trans 'Войти' %}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">{% trans 'Регистрация' %}</a></li>
+                  {% endif %}
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" 
+                        id="navbarDropdownlang" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                  {% if request.LANGUAGE_CODE == 'ru' %}
+                    <img src='{% static "img/russia.png" %}' alt=''  width=32/>
+                  {% elif request.LANGUAGE_CODE == 'en' %}
+                    <img src='{% static "img/united-states.png" %}' alt='' width=32/>
+                  {% endif %}
+                  
+                </a>
+                <ul class="dropdown-menu dropdown-menu-sport" aria-labelledby="navbarDropdownlang">
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for lang in languages %}
+                    <li>
+                      <form action="{% url 'set_language' %}" method="POST">
+                      {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.path }}">
+                        <input type="hidden" name="language" value="{{ lang.code }}">
+                        <input type="submit" class="dropdown-item" href="#" onclick="" value='{{ lang.name_local }}'/>
+                      </form>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+        </ul>
+
+        <form action='{% url "search" %}' method='get' class="d-flex flex-column">
+            <input type="search" 
+                    class="form-control form-control-dark search-input-site" 
+                    placeholder="Поиск..." 
+                    aria-label="Search"
+                    name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
+        </form>
+    </div>
+</div>
+</nav>

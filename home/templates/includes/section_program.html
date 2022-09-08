@@ -1,0 +1,59 @@
+{% load wagtailcore_tags wagtailimages_tags static i18n %}
+
+<div id='myCarouselProgram'>
+    <div class='d-flex justify-content-center pt-3'><h4>{{ head_text }}</h4></div>
+    <div id="myCarousel" class="carousel slide"  >  
+        <ol class="carousel-indicators">
+            {% for programs in programs_carusel %}
+                {% if forloop.counter0 == 0 %}
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="active"></li>    
+                {% else %}  
+                    <li data-bs-target="#myCarousel" data-bs-slide-to="{{ forloop.counter0 }}" ></li>    
+                {% endif %}
+                
+            {% endfor %}
+        </ol> 
+        <div class="carousel-inner page-list-sport">
+            {% for programs in programs_carusel %}
+            {% if forloop.counter0 == 0 %}
+                <div class="carousel-item active">
+            {% else %}  
+                <div class="carousel-item ">
+            {% endif %}
+                <div class="row pt-3 pb-3 pe-2 ps-2">
+                    {% for program in programs %}
+                    <div class="col-md-4 mb-3">
+                        <div class="thumb-wrapper card-block card h-100">
+                            <div class="img-box">
+                                {% image program.specific.image fill-600x500 as image %}
+                                <img src="{{ image.url }}" class="img-fluid" alt="{{ image.alt }}">
+                            </div>
+                            <div class="thumb-content d-flex flex-column h-100">
+                                <div>
+                                    <h6>{{ program.title }}</h6>
+                                    <h5 class="text-center">
+                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                        {{ program.specific.price }}
+                                    </h5>
+                                    <p style='font-size: 1.1em;'>{{ program.specific.intro | richtext }}</p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-end h-100">
+                                    <a href="{% pageurl program %}" class="btn stretched-link">{% trans 'Заказать' %} <i class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>						
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href data-bs-slide="prev" data-bs-target="#myCarousel" >
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href data-bs-slide="next" data-bs-target="#myCarousel" >
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+
+</div>

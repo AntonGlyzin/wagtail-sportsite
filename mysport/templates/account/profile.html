@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load i18n wagtailimages_tags %}
+
+{% block title %}{% trans "Profile" %}{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+<div class="worked-account w-100 d-flex justify-content-center pt-4 hover-sport">
+    <div class="offset-md-1 col-md-6" >
+        <h1>{% trans 'Профиль' %}</h1>
+        <p>{% trans 'Добро пожаловать' %}, {{ request.user.username }}!</p>
+
+        {% if request.user.photo  %}
+        {% with request.user.photo as ava %}
+            <div class="profile-photo d-flex">
+            <img src="{{ ava.url }}" 
+                alt="{{ ava.alt }}" 
+                class="mx-auto img-thumbnail rounded-circle"
+                style="max-height: 300px;">
+            </div>
+        {% endwith %}
+        {% endif %}
+
+        <form method="post" action="" class="login" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="container row overflow-hidden text-right">
+                <div class="">
+                    <a href='{% url "account_change_password" %}' class=''>
+                        {% trans "Сменить пароль" %} 
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </a>
+                    {% comment %} <a href='{% url "account_email" %}'  class='col'>
+                        {% trans "Сменить E-mail" %} 
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a> {% endcomment %}
+                </button>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column">
+            <button class="btn-mysport mt-4 mb-5" type="submit">
+                {% trans "Save" %}
+                <i class="fa-solid fa-save"></i>
+            </button>
+          </div>
+            
+        </form>
+        
+        
+        
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
+
+{% block extra_body %}
+<script type="text/javascript">
+
+function GoToLink(href) {
+    window.location.href = href
+}
+
+</script>
+{% endblock %}

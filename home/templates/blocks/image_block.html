@@ -1,0 +1,28 @@
+{% load wagtailimages_tags template_tags i18n %}
+
+<style>
+  .image-block img{
+    cursor: pointer;
+  }
+</style>
+
+{% image self original as image %}
+<div class="image-block d-flex justify-content-center">
+    <img src="{{ image.url }}" class="d-block w-75" alt="{{ image.alt }}" 
+        data-bs-toggle="modal" data-bs-target="#{% replace_string string=image.url %}"
+        >
+</div>
+
+<div class="modal fade" id="{% replace_string string=image.url %}" tabindex="-1" >
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Закрыть' %}"></button>
+        </div>  
+        <div class="modal-body">
+            <img src="{{ image.url }}" class="d-block w-100" alt="{{ image.alt }}" >
+        </div>
+      </div>
+    </div>
+  </div>
+  

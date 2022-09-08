@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-02 16:00+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: authuser/admin.py:12 authuser/admin.py:16 home/blocks.py:38
+#: home/blocks.py:55 home/models.py:115 home/models.py:196 home/models.py:351
+msgid "Изображение"
+msgstr "Image"
+
+#: authuser/admin.py:29
+msgid "Аватарка"
+msgstr "Avatar"
+
+#: authuser/admin.py:34 home/wagtail_hooks.py:53 home/wagtail_hooks.py:75
+msgid "Миниатюра"
+msgstr "Thumbnail"
+
+#: authuser/models.py:12
+msgid "Фото"
+msgstr "Photo"
+
+#: authuser/models.py:17 authuser/models.py:18
+#: home/templates/includes/header_menu.html:41
+#: mysport/templates/account/profile.html:12
+msgid "Профиль"
+msgstr "Profile"
+
+#: home/blocks.py:28 home/blocks.py:29
+msgid "Видео"
+msgstr "Video"
+
+#: home/blocks.py:32
+msgid "Картинка"
+msgstr "Image"
+
+#: home/blocks.py:37 home/models.py:62 home/models.py:68 home/models.py:88
+msgid "Заголовок"
+msgstr "Title"
+
+#: home/blocks.py:39
+msgid "Описание"
+msgstr "Description"
+
+#: home/blocks.py:50
+msgid "Текст"
+msgstr "Text"
+
+#: home/forms.py:16 home/forms.py:18 home/forms.py:37
+msgid "Имя"
+msgstr "Name"
+
+#: home/forms.py:22 home/forms.py:24 home/forms.py:38
+msgid "Фамилия"
+msgstr "Surname"
+
+#: home/models.py:55 home/wagtail_hooks.py:37
+msgid "Карусель"
+msgstr "Carousel"
+
+#: home/models.py:60
+msgid "Список программ"
+msgstr "List of programs"
+
+#: home/models.py:64
+msgid "Элемент"
+msgstr "Element"
+
+#: home/models.py:65
+msgid "Польза спорта"
+msgstr "Benefits"
+
+#: home/models.py:70 home/models.py:71 home/models.py:117
+msgid "Цитата"
+msgstr ""
+
+#: home/models.py:79
+msgid "Полезные свойства"
+msgstr "Useful properties"
+
+#: home/models.py:83 home/wagtail_hooks.py:44
+msgid "Рекомендации"
+msgstr "Recommendations"
+
+#: home/models.py:90
+msgid "Элемент карусели"
+msgstr "Carousel element"
+
+#: home/models.py:91
+msgid "Контент для карусели"
+msgstr "Content for the carousel"
+
+#: home/models.py:102
+msgid "Карусель для сайта"
+msgstr "Carousel for the site"
+
+#: home/models.py:103
+msgid "элемент"
+msgstr "element"
+
+#: home/models.py:108
+msgid "Автор"
+msgstr "Author"
+
+#: home/models.py:128
+msgid "Цитаты про спорт"
+msgstr "Quotes"
+
+#: home/models.py:129
+msgid "цитату"
+msgstr "quote"
+
+#: home/models.py:137
+msgid "Текст для секции"
+msgstr "Text for the section"
+
+#: home/models.py:178 home/models.py:222
+msgid "Программы"
+msgstr "Program"
+
+#: home/models.py:188 home/models.py:343
+msgid "Предпросмотр"
+msgstr "Preview"
+
+#: home/models.py:200 home/models.py:202 home/models.py:336 home/models.py:338
+msgid "Контент"
+msgstr "Content"
+
+#: home/models.py:204 home/models.py:326
+msgid "Дата"
+msgstr "Date"
+
+#: home/models.py:206
+msgid "Цена программы"
+msgstr "Program price"
+
+#: home/models.py:223
+msgid "Программа"
+msgstr "Program"
+
+#: home/models.py:229 home/models.py:333
+msgid "Категория"
+msgstr "Category"
+
+#: home/models.py:232
+msgid "Слаг"
+msgstr "Slug"
+
+#: home/models.py:233
+msgid "Заполняется автоматически при сохранение, когда поле пустое."
+msgstr "It is filled in automatically when saving when the field is empty."
+
+#: home/models.py:248
+msgid "Список категорий"
+msgstr "List of categories"
+
+#: home/models.py:249
+msgid "категорию"
+msgstr "category"
+
+#: home/models.py:317
+msgid "Блог"
+msgstr "Blog"
+
+#: home/models.py:367
+msgid "Информация о записи"
+msgstr "Information about the record"
+
+#: home/models.py:368 home/wagtail_hooks.py:67
+msgid "Комментарии"
+msgstr "Comments"
+
+#: home/models.py:386
+msgid "Записи в блоге"
+msgstr "Blog entries"
+
+#: home/models.py:387
+msgid "Запись"
+msgstr "Record"
+
+#: home/models.py:412
+msgid "Сообщение перед формой"
+msgstr "Message before the form"
+
+#: home/models.py:413
+msgid "Сообщение при отправление"
+msgstr "Message when sending"
+
+#: home/models.py:417
+msgid "Поля формы"
+msgstr "Form Fields"
+
+#: home/models.py:421
+msgid "Страница контактов"
+msgstr "Contact Page"
+
+#: home/models.py:426
+msgid "Настройки сайта"
+msgstr "Site Settings"
+
+#: home/models.py:430
+msgid "Название сайта"
+msgstr "Site name"
+
+#: home/models.py:439
+msgid "Лого"
+msgstr "Logo"
+
+#: home/models.py:442
+msgid "Количество постов на странице"
+msgstr "Number of posts per page"
+
+#: home/models.py:444
+msgid "Рекомендуется количество постов кратнее 3."
+msgstr "The recommended number of posts is a multiple of 3."
+
+#: home/models.py:458
+msgid "Социальные сети"
+msgstr "Social network"
+
+#: home/templates/blocks/image_block.html:20
+msgid "Закрыть"
+msgstr "Close"
+
+#: home/templates/home/contact_page.html:24
+msgid "Отправить"
+msgstr "Send"
+
+#: home/templates/home/page_sport.html:81
+msgid "Комментариев"
+msgstr "Comments"
+
+#: home/templates/includes/breadcrumbs.html:10
+msgid "Главная"
+msgstr "Main"
+
+#: home/templates/includes/carousel_block.html:32
+msgid "Предыдущий"
+msgstr "Previous"
+
+#: home/templates/includes/carousel_block.html:36
+msgid "Следующий"
+msgstr "Next"
+
+#: home/templates/includes/header_menu.html:43
+msgid "Выйти"
+msgstr "Exit"
+
+#: home/templates/includes/header_menu.html:45
+msgid "Войти"
+msgstr "Enter"
+
+#: home/templates/includes/header_menu.html:46
+msgid "Регистрация"
+msgstr "Registration"
+
+#: home/templates/includes/section_footer.html:8 home/wagtail_hooks.py:59
+msgid "Категории"
+msgstr "Categories"
+
+#: home/templates/includes/section_footer.html:21 home/wagtail_hooks.py:82
+msgid "Теги"
+msgstr "Tags"
+
+#: home/templates/includes/section_footer.html:37
+msgid "Все права защищены."
+msgstr "All rights reserved."
+
+#: home/templates/includes/section_program.html:41
+msgid "Заказать"
+msgstr "To order"
+
+#: home/wagtail_hooks.py:88
+msgid "Элементы сайта"
+msgstr "Site Elements"
+
+#: mysport/templates/account/email.html:14
+#: mysport/templates/account/password_change.html:13
+msgid "< Назад на профиль"
+msgstr "< Back to profile"
+
+#: mysport/templates/account/profile.html:13
+#: mysport/templates/wagtailadmin/home.html:4
+msgid "Добро пожаловать"
+msgstr "Welcome"
+
+#: mysport/templates/account/profile.html:33
+msgid "Сменить пароль"
+msgstr "Change Password"
+
+#: mysport/templates/comments/delete.html:46
+msgid "Отмена"
+msgstr "Cancel"
+

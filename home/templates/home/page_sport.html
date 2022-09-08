@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load i18n wagtailcore_tags static wagtailimages_tags template_tags comments comments_xtd  %}
+
+
+{% block content %}
+<div class="page-program">
+    <div class='d-flex justify-content-center'>
+        {% image page.specific.image original as image %}
+        <img src="{{ image.url }}" class="page-program-mainimg img-thumbnail" alt="{{ image.alt }}">
+    </div>
+    <div class="row">
+        <div class="ps-5 pe-5 pt-4 d-flex">
+            <i class="fa fa-home me-1" aria-hidden="true"></i>
+            {% breadcrumbs %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="ps-5 pe-5">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            {{ page.specific.owner.get_full_name }}
+        </div>
+    </div>
+    {% if page.specific.get_tags %}
+        <div class="row">
+            <div class="ps-5 pe-5 d-flex pt-2">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                {% for tag in page.specific.get_tags %}
+                    <a href='{{ tag.url }}' class="pe-1 ps-1">
+                        <span class="badge text-bg-dark text-decoration-underline">{{ tag.name }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if page.specific.categories %}
+        <div class="row">
+            <div class="ps-5 pe-5 d-flex pt-2">
+                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                <a href='{{ page.specific.categories.get_absolute_url }}' class="pe-1 ps-1">
+                    <span class="badge text-bg-dark text-decoration-underline">
+                        {{ page.specific.categories.name }}
+                    </span>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if page.specific.price %}
+        <div class="row">
+            <div class="ps-5 pe-5 d-flex pt-2">
+                <h5 class="text-center">
+                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                    {{ page.specific.price }}
+                </h5>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="ps-5 pe-5 d-flex pt-2">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span class='pe-1 ps-1'>
+                {{ page.specific.date_created }}
+            </span>
+        </div>
+    </div>
+    
+    <div class="page-program-title pt-3 text-center ps-4 pe-4">
+        <h4 class="border-bottom">{{ page.specific.title }}</h4>
+    </div>
+    <div class="page-program-text ps-5 pe-5">
+        {% for content in page.specific.content %}
+            {% include 'includes/streamf_content.html'  %}
+        {% endfor %}
+    </div>
+
+    <div class="page-commet ps-5 pe-5 pt-3">
+        {% get_comment_count for page as comment_count %}
+        <div class="comment-count">
+            <h6 class="pt-2">{% trans 'Комментариев' %} ({{ comment_count }})</h6>
+            <div class="comment-form">
+                {% render_comment_form for page %}
+            </div>
+            <div class="comment-list pt-4">
+                {% render_xtdcomment_tree for page allow_feedback show_feedback %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

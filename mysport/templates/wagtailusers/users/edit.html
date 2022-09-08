@@ -1,0 +1,12 @@
+{% extends "wagtailusers/users/edit.html" %}
+
+{% block extra_fields %}
+
+    {% include "wagtailadmin/shared/field_as_li.html" with field=form.photo %}
+
+    {% if form.instance.photo %}
+    <img src='{{ form.instance.photo.url }}' 
+        alt='{{ form.instance.photo.alt }}' 
+        width=112 style='border-radius:50%;' />
+    {% endif %}
+{% endblock extra_fields %}

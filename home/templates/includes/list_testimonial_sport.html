@@ -1,0 +1,45 @@
+{% load wagtailimages_tags %}
+
+<div class="testimonial-block pt-4">
+    <div class="text-center"><h4>{{ head_testimonial }}</h4></div>
+    <div class="carousel slide" data-bs-ride="carousel" id="quote-carousel" data-bs-interval="20000">
+        <ol class="carousel-indicators">
+            {% for testimonial in list_testimonial %}
+            {% image testimonial.value.image fill-200x200-c100 as image %}
+            {% if forloop.counter0 == 0 %}
+            <li data-bs-target="#quote-carousel" data-bs-slide-to="0" class="active position-relative"  >
+            {% else %}
+            <li data-bs-target="#quote-carousel" data-bs-slide-to="{{ forloop.counter0 }}" class="position-relative">
+            {% endif %}
+                <img class="position-absolute" src="{{ image.url }}" alt="{{ image.alt }}">
+            </li>
+            {% endfor %}
+        </ol>
+        
+        <div class="carousel-inner text-center">
+            {% for testimonial in list_testimonial %}
+            {% if forloop.counter == 1 %}
+            <div class="carousel-item active item">
+            {% else %}
+            <div class="carousel-item item">
+            {% endif %}
+                <blockquote>
+                    <div class="row">
+                        <div class="">
+
+                            <p>{{ testimonial.value.text }}</p>
+                            
+                            <figcaption class="blockquote-footer pt-3">
+                                {{ testimonial.value.author }}
+                              </figcaption>
+                        </div>
+                    </div>
+                </blockquote>
+            </div>
+            {% endfor %}
+            
+        </div>
+        <a data-bs-slide="prev" href class="left carousel-control-prev carousel-control" data-bs-target="#quote-carousel" ><i class="fa fa-chevron-left"></i></a>
+        <a data-bs-slide="next" href class="right carousel-control-next carousel-control" data-bs-target="#quote-carousel" ><i class="fa fa-chevron-right"></i></a>
+    </div>
+</div>
